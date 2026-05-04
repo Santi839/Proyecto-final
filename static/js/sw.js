@@ -1,10 +1,10 @@
 const CACHE_NAME = 'pasajeros-pwa-v2';  // Incrementa la versión para forzar actualización
 const urlsToCache = [
-    '/',
-    '/static/css/style.css',
-    '/static/js/app.js',
-    '/static/manifest.json',
-    '/static/icons/icon.png'           // ícono principal
+    './',
+    './static/css/style.css',
+    './static/js/app.js',
+    './static/manifest.json',
+    './static/icons/icon.png'           // ícono principal
 ];
 
 self.addEventListener('install', event => {

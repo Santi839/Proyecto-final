@@ -93,6 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Registrar Service Worker
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/static/js/sw.js');
+        navigator.serviceWorker.register('./static/js/sw.js');
     }
 });
