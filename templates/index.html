@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#0A1A2F">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='icons/icon.png') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='icons/icon.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Predicción de Pasajeros - Transporte Terrestre</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1> Flujo de Pasajeros</h1>
+            <p>Predicción inteligente para rutas terrestres</p>
+        </header>
+
+        <main>
+            <form id="prediccion-form">
+                <div class="form-group">
+                    <label for="terminal">Terminal</label>
+                    <select id="terminal" required>
+                        <option value="">Seleccione...</option>
+                        <option>T.T. DE TUNJA</option>
+                        <option>T.T. DE MANIZALES</option>
+                        <option>T.T. DE BOGOTÁ NORTE</option>
+                        <option>T.T. DE CARTAGENA</option>
+                        <option>T.T. DE DUITAMA</option>
+                        <option>T.T. DE PASTO</option>
+                        <option>T.T. DE MEDELLÍN NORTE</option>
+                        <option>T.T. DE BOGOTÁ SUR</option>
+                        <option>T.T. DE PITALITO</option>
+                        <option>T.T. DE BUCARAMANGA</option>
+                        <option>T.T. DE APARTADÓ</option>
+                        <option>T.T. DE BOGOTÁ SALITRE</option>
+                        <option>T.T. DE CAUCASIA</option>
+                        <option>T.T. DE IBAGUÉ</option>
+                        <option>T.T. DE BARRANQUILLA</option>
+                        <option>T.T. DE TULÚA</option>
+                        <option>T.T. DE MELGAR</option>
+                        <option>T.T. DE HONDA</option>
+                        <option>T.T. DE ARMENIA</option>
+                        <option>T.T. DE VILLAGARZÓN</option>
+                        <option>T.T. DE IPIALES</option>
+                        <option>T.T. DE PEREIRA</option>
+                        <option>T.T. DE SOGAMOSO</option>
+                        <option>T.T. DE MEDELLÍN SUR</option>
+                        <option>T.T. DE FLORENCIA</option>
+                        <option>T.T. DE BUGA</option>
+                        <option>T.T. DE PLANETA RICA</option>
+                        <option>T.T. DE CÚCUTA</option>
+                        <option>T.T. DE VALLEDUPAR</option>
+                        <option>T.T. DE SANTA MARTA</option>
+                        <option>T.T. DE CALI</option>
+                        <option>T.T. DE FUSAGASUGA</option>
+                        <option>T.T. DE VILLAVICENCIO</option>
+                        <option>T.T. DE GARZÓN</option>
+                        <option>T.T. DE SOCORRO</option>
+                        <option>T.T. DE ESPINAL</option>
+                        <option>T.T. DE CHIQUINQUIRÁ</option>
+                        <option>T.T. DE GIRARDOT</option>
+                        <option>T.T. DE MONTERÍA</option>
+                        <option>T.T. DE NEIVA</option>
+                        <option>T.T. DE AGUACHICA</option>
+                        <option>T.T. DE SAN GIL</option>
+                        <option>T.T. DE AGUAZUL</option>
+                        <option>T.T. DE POPAYÁN</option>
+                        <option>T.T. DE LA PLATA</option>
+                        <option>T.T. DE YARUMAL</option>
+                        <option>T.T. DE OCAÑA</option>
+                        <option>T.T. DE MAICAO</option>
+                        <option>T.T. DE BUENAVENTURA</option>
+                        <option>T.T. DE PAMPLONA</option>
+                        <option>T.T. DE CARTAGENA NORTE</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="clase_vehiculo">Clase de vehículo</label>
+                    <select id="clase_vehiculo" required>
+                        <option value="">Seleccione...</option>
+                        <option>BUS</option>
+                        <option>CAMIONETA</option>
+                        <option>MICROBUS</option>
+                        <option>CAMPERO</option>
+                        <option>BUSETA</option>
+                        <option>AUTOMOVIL</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="nivel_servicio">Nivel de servicio</label>
+                    <select id="nivel_servicio" required>
+                        <option value="">Seleccione...</option>
+                        <option>LUJO</option>
+                        <option>BASICO</option>
+                        <option>PREFERENCIAL DE LUJO</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="mun_origen">Municipio origen</label>
+                    <select id="mun_origen" required></select>
+                </div>
+
+                <div class="form-group">
+                    <label for="mun_destino">Municipio destino</label>
+                    <select id="mun_destino" required></select>
+                </div>
+
+                <div class="form-group">
+                    <label for="fecha">Fecha de despacho</label>
+                    <input type="date" id="fecha" required>
+                    <small>Se usará formato: AAAA Mes DD 12:00:00 AM</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="hora">Hora de despacho (0-23)</label>
+                    <select id="hora" required>
+                        <option value="">Seleccione...</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="tipo_despacho">Tipo de despacho</label>
+                    <select id="tipo_despacho" required>
+                        <option value="">Seleccione...</option>
+                        <option>TRANSITO</option>
+                        <option>ORIGEN</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="despachos">Número de despachos</label>
+                    <input type="number" id="despachos" min="1" max="20" required>
+                </div>
+
+                <button type="submit" class="btn-predecir">Predecir flujo</button>
+            </form>
+
+            <div id="resultado" class="resultado oculto">
+                <h2>Resultado de la predicción</h2>
+                <div class="cifra"><span id="valor-predicho"></span> pasajeros</div>
+            </div>
+            <div id="error" class="error oculto"></div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

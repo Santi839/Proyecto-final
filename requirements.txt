@@ -1,0 +1,4 @@
+flask
+pandas
+torch
+scikit-learn   # o la librería que use tu modelo (xgboost, lightgbm, etc.)
