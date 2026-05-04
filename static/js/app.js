@@ -1,3 +1,5 @@
+const API_BASE_URL = ''; // Cuando tu backend esté desplegado en otro host, pon aquí su URL, por ejemplo 'https://mi-backend.onrender.com'
+
 document.addEventListener('DOMContentLoaded', () => {
     // Llenar dropdown de horas (0-23)
     const horaSelect = document.getElementById('hora');
@@ -9,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Cargar municipios desde el backend
-    fetch('/municipios')
+    fetch(`${API_BASE_URL}/municipios`)
         .then(res => res.json())
         .then(municipios => {
             const munOrigen = document.getElementById('mun_origen');
@@ -68,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         try {
-            const response = await fetch('/predecir', {
+            const response = await fetch(`${API_BASE_URL}/predecir`, {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(payload)
